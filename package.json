@@ -1,0 +1,31 @@
+{
+    "name": "@stickyboard/stickyboard-recharts",
+    "version": "0.1.0",
+    "description": "Recharts components for StickyBoard",
+    "main": "index.js",
+    "scripts": {
+        "test": "recharts"
+    },
+    "dependencies": {
+        "@material-ui/core": "^1.1.0",
+        "@material-ui/icons": "^1.1.0",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.26",
+        "react": "^16.4.0",
+        "recharts": "^1.6.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/soaple/stickyboard-recharts.git"
+    },
+    "keywords": [
+        "stickyboard",
+        "recharts"
+    ],
+    "author": "soaple",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/soaple/stickyboard-recharts/issues"
+    },
+    "homepage": "https://github.com/soaple/stickyboard-recharts#readme"
+}

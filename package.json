@@ -1,10 +1,12 @@
 {
-    "name": "@stickyboard/stickyboard-recharts",
-    "version": "0.1.0",
+    "name": "@stickyboard/recharts",
+    "version": "0.1.1",
     "description": "Recharts components for StickyBoard",
     "main": "index.js",
     "scripts": {
-        "test": "recharts"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch",
+        "build": "webpack"
     },
     "dependencies": {
         "@material-ui/core": "^1.1.0",
@@ -12,7 +14,9 @@
         "moment": "^2.24.0",
         "moment-timezone": "^0.5.26",
         "react": "^16.4.0",
-        "recharts": "^1.6.2"
+        "react-dom": "^16.8.6",
+        "recharts": "^1.6.2",
+        "webpack": "^2.6.1"
     },
     "repository": {
         "type": "git",
@@ -20,6 +24,8 @@
     },
     "keywords": [
         "stickyboard",
+        "react",
+        "dashboard",
         "recharts"
     ],
     "author": "soaple",
@@ -27,5 +33,13 @@
     "bugs": {
         "url": "https://github.com/soaple/stickyboard-recharts/issues"
     },
-    "homepage": "https://github.com/soaple/stickyboard-recharts#readme"
+    "homepage": "https://github.com/soaple/stickyboard-recharts#readme",
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-env": "^1.5.1"
+    }
 }

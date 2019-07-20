@@ -11,7 +11,6 @@ class SimpleDateAxisTick extends React.Component {
         const date = Moment(new Date(payload.value));
 
         return (
-
             <g transform={`translate(${x},${y})`}>
                 {date.isValid() &&
                     <text

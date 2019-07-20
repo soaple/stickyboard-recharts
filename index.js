@@ -1,4 +1,4 @@
-module.exports = require('./src/ReLineChart').default;
-module.exports = require('./src/DateAxisTick').default;
-module.exports = require('./src/DateOnlyAxisTick').default;
-module.exports = require('./src/SimpleDateAxisTick').default;
+export ReLineChart from './src/ReLineChart';
+export DateAxisTick from './src/DateAxisTick';
+export DateOnlyAxisTick from './src/DateOnlyAxisTick';
+export SimpleDateAxisTick from './src/SimpleDateAxisTick';

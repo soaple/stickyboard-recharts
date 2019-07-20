@@ -35,8 +35,8 @@ class ReLineChart extends React.Component {
     }
 
     render () {
-        const { classes, theme } = this.props
-        const { data } = this.props
+        const { classes, theme } = this.props;
+        const { data, lineColor } = this.props;
 
         return (
             <ResponsiveContainer>
@@ -62,7 +62,7 @@ class ReLineChart extends React.Component {
                         dataKey="visitors"
                         name={'Visitors'}
                         unit={''}
-                        stroke={this.props.lineColor}
+                        stroke={lineColor}
                         strokeWidth={2}
                         dot={false}
                         activeDot={{r: 6}} />}

@@ -1,4 +1,4 @@
-// src/ReLineChart.js
+// src/SBR_LineChart.js
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -22,7 +22,7 @@ const styles = theme => ({
     },
 });
 
-class ReLineChart extends React.Component {
+class SBR_LineChart extends React.Component {
     constructor (props) {
         super(props);
 
@@ -36,21 +36,23 @@ class ReLineChart extends React.Component {
 
     render () {
         const { classes, theme } = this.props;
-        const { data, lineColor } = this.props;
+        const { data, xAxisDataKey, lineType, lineDataKey, lineName, lineColor } = this.props;
 
         return (
             <ResponsiveContainer>
                 <LineChart
                     data={data}
                     margin={{top: 20, right: 30, left: 10, bottom: 20}}>
-                    <XAxis
-                        dataKey='time'
-                        padding={{left: this.state.left, right: this.state.right}}
-                        domain={['dataMin -5', 'dataMax + 5']}
-                        type='number'
-                        tickCount={10}
-                        tick={<SimpleDateAxisTick />}/>
-                    <YAxis/>
+                    {xAxisDataKey &&
+                        <XAxis
+                            dataKey={xAxisDataKey}
+                            padding={{left: this.state.left, right: this.state.right}}
+                            domain={['dataMin -5', 'dataMax + 5']}
+                            type='number'
+                            tickCount={10}
+                            tick={<SimpleDateAxisTick />}/>}
+                    {xAxisDataKey &&
+                        <YAxis/>}
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
                         labelFormatter={(label) => { return DateUtil.formatDateOnly(label) }}
@@ -58,23 +60,23 @@ class ReLineChart extends React.Component {
                     <Legend />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Line
-                        type="linear"
-                        dataKey="visitors"
-                        name={'Visitors'}
+                        type={lineType}
+                        dataKey={lineDataKey}
+                        name={lineName}
                         unit={''}
                         stroke={lineColor}
                         strokeWidth={2}
                         dot={false}
-                        activeDot={{r: 6}} />}
+                        activeDot={{r: 6}} />
                 </LineChart>
             </ResponsiveContainer>
         )
     }
 }
 
-ReLineChart.propTypes = {
+SBR_LineChart.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(ReLineChart);
+export default withStyles(styles, { withTheme: true })(SBR_LineChart);

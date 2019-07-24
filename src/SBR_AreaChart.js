@@ -1,4 +1,4 @@
-// src/SBR_RadarChart.js
+// src/SBR_AreaChart.js
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -22,7 +22,17 @@ const styles = theme => ({
     },
 });
 
-class SBR_RadarChart extends React.Component {
+const getPercent = (value, total) => {
+	const ratio = total > 0 ? value / total : 0;
+
+    return toPercent(ratio, 2);
+};
+
+const toPercent = (decimal, fixed = 0) => {
+	return `${(decimal * 100).toFixed(fixed)}%`;
+};
+
+class SBR_AreaChart extends React.Component {
     constructor (props) {
         super(props);
 
@@ -36,36 +46,37 @@ class SBR_RadarChart extends React.Component {
 
     render () {
         const { classes, theme } = this.props;
-        const { data, polarAngleAxisKey, radarAttrArray } = this.props;
+        const { data, xAxisDataKey, areaAttrArray } = this.props;
 
         return (
             <ResponsiveContainer>
-                <RadarChart cx={'50%'} cy={'50%'} outerRadius={'80%'} data={data}
+                <AreaChart
+                    data={data}
+                    stackOffset="expand"
                     margin={{top: 20, right: 20, bottom: 20, left: 20}}>
-                    {radarAttrArray.map((radarAttr, index) => {
+                    <XAxis dataKey={xAxisDataKey}/>
+                    <YAxis tickFormatter={toPercent}/>
+                    <Tooltip />
+                    {areaAttrArray.map((areaAttr, index) => {
                         return (
-                            <Radar
-                                key={radarAttr.dataKey}
-                                name={radarAttr.name}
-                                dataKey={radarAttr.dataKey}
-                                stroke={radarAttr.stroke}
-                                fill={radarAttr.fill}
-                                fillOpacity={0.8} />
+                            <Area
+                                key={areaAttr.dataKey}
+                                type={areaAttr.type}
+                                dataKey={areaAttr.dataKey}
+                                stackId={areaAttr.stackId}
+                                stroke={areaAttr.stroke}
+                                fill={areaAttr.fill} />
                         )
                     })}
-                    <PolarGrid />
-                    <Legend />
-                    <PolarAngleAxis dataKey={polarAngleAxisKey} />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]}/>
-                </RadarChart>
+                </AreaChart>
             </ResponsiveContainer>
         )
     }
 }
 
-SBR_RadarChart.propTypes = {
+SBR_AreaChart.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(SBR_RadarChart);
+export default withStyles(styles, { withTheme: true })(SBR_AreaChart);

@@ -1,4 +1,4 @@
-// src/SBR_RadarChart.js
+// src/SBR_ScatterChart.js
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -22,7 +22,7 @@ const styles = theme => ({
     },
 });
 
-class SBR_RadarChart extends React.Component {
+class SBR_ScatterChart extends React.Component {
     constructor (props) {
         super(props);
 
@@ -36,36 +36,29 @@ class SBR_RadarChart extends React.Component {
 
     render () {
         const { classes, theme } = this.props;
-        const { data, polarAngleAxisKey, radarAttrArray } = this.props;
+        const { data, xAxisAttr, yAxisAttr, scatterName, scatterColor } = this.props;
 
         return (
             <ResponsiveContainer>
-                <RadarChart cx={'50%'} cy={'50%'} outerRadius={'80%'} data={data}
+                <ScatterChart
                     margin={{top: 20, right: 20, bottom: 20, left: 20}}>
-                    {radarAttrArray.map((radarAttr, index) => {
-                        return (
-                            <Radar
-                                key={radarAttr.dataKey}
-                                name={radarAttr.name}
-                                dataKey={radarAttr.dataKey}
-                                stroke={radarAttr.stroke}
-                                fill={radarAttr.fill}
-                                fillOpacity={0.8} />
-                        )
-                    })}
-                    <PolarGrid />
-                    <Legend />
-                    <PolarAngleAxis dataKey={polarAngleAxisKey} />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]}/>
-                </RadarChart>
+                    <CartesianGrid />
+                    <XAxis {...xAxisAttr} />
+                    <YAxis {...yAxisAttr} />
+                    <Scatter
+                        data={data}
+                        name={scatterName}
+                        fill={scatterColor} />
+                    <Tooltip cursor={{strokeDasharray: '3 3'}}/>
+                </ScatterChart>
             </ResponsiveContainer>
         )
     }
 }
 
-SBR_RadarChart.propTypes = {
+SBR_ScatterChart.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(SBR_RadarChart);
+export default withStyles(styles, { withTheme: true })(SBR_ScatterChart);

@@ -10,4 +10,4 @@ var DateUtil = {
 
 }
 
-module.exports = DateUtil;
+export default DateUtil;

@@ -1,6 +1,6 @@
 {
     "name": "@stickyboard/recharts",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Recharts components for StickyBoard",
     "main": "index.js",
     "scripts": {
@@ -9,12 +9,12 @@
         "build": "webpack"
     },
     "dependencies": {
-        "@material-ui/core": "^1.1.0",
-        "@material-ui/icons": "^1.1.0",
+        "@material-ui/core": "^4.3.0",
+        "@material-ui/icons": "^4.2.1",
         "moment": "^2.24.0",
         "moment-timezone": "^0.5.26",
         "prop-types": "^15.7.2",
-        "react": "^16.4.0",
+        "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "recharts": "^1.6.2"
     },

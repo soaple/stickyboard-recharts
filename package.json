@@ -4,7 +4,7 @@
     "description": "Recharts components for StickyBoard",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "recharts",
         "start": "webpack --watch",
         "build": "webpack"
     },
@@ -16,7 +16,7 @@
         "prop-types": "^15.7.2",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
-        "recharts": "^1.6.2"
+        "recharts": "^1.7.1"
     },
     "repository": {
         "type": "git",

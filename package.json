@@ -1,8 +1,8 @@
 {
     "name": "@stickyboard/recharts",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Recharts components for StickyBoard",
-    "main": "index.js",
+    "main": "dist/index.js",
     "scripts": {
         "test": "recharts",
         "start": "webpack --watch",
@@ -39,6 +39,7 @@
         "@babel/plugin-proposal-class-properties": "^7.5.5",
         "@babel/plugin-proposal-export-default-from": "^7.5.2",
         "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+        "@babel/plugin-syntax-export-default-from": "^7.2.0",
         "@babel/preset-env": "^7.5.5",
         "@babel/preset-react": "^7.0.0",
         "babel-eslint": "^7.1.1",

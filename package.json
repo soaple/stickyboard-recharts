@@ -1,6 +1,6 @@
 {
     "name": "@stickyboard/recharts",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Recharts components for StickyBoard",
     "main": "dist/index.js",
     "scripts": {

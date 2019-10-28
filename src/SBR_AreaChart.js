@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
     Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
     BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis,
@@ -14,13 +12,6 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
 import SimpleDateAxisTick from './SimpleDateAxisTick';
 
 import DateUtil from './DateUtil';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        height: '100%',
-    },
-});
 
 const getPercent = (value, total) => {
 	const ratio = total > 0 ? value / total : 0;
@@ -44,8 +35,7 @@ class SBR_AreaChart extends React.Component {
         }
     }
 
-    render () {
-        const { classes, theme } = this.props;
+    render() {
         const { data, xAxisDataKey, areaAttrArray } = this.props;
 
         return (
@@ -74,9 +64,6 @@ class SBR_AreaChart extends React.Component {
     }
 }
 
-SBR_AreaChart.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
+SBR_AreaChart.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(SBR_AreaChart);
+export default SBR_AreaChart;

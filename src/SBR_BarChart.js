@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
     Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
     BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis,
@@ -14,13 +12,6 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
 import SimpleDateAxisTick from './SimpleDateAxisTick';
 
 import DateUtil from './DateUtil';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        height: '100%',
-    },
-});
 
 class SBR_BarChart extends React.Component {
     constructor (props) {
@@ -34,8 +25,7 @@ class SBR_BarChart extends React.Component {
         }
     }
 
-    render () {
-        const { classes, theme } = this.props;
+    render() {
         const { data, xAxisDataKey, barDataKey, barName, barColor } = this.props;
 
         return (
@@ -48,7 +38,7 @@ class SBR_BarChart extends React.Component {
                             dataKey={xAxisDataKey}
                             tickCount={10}
                             tick={<SimpleDateAxisTick />}/>}
-                    {xAxisDataKey && 
+                    {xAxisDataKey &&
                         <YAxis/>}
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
@@ -66,9 +56,6 @@ class SBR_BarChart extends React.Component {
     }
 }
 
-SBR_BarChart.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
+SBR_BarChart.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(SBR_BarChart);
+export default SBR_BarChart;

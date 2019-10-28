@@ -3,8 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
     Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
     BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis,
@@ -14,13 +12,6 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
 import SimpleDateAxisTick from './SimpleDateAxisTick';
 
 import DateUtil from './DateUtil';
-
-const styles = theme => ({
-    root: {
-        width: '100%',
-        height: '100%',
-    },
-});
 
 class SBR_RadarChart extends React.Component {
     constructor (props) {
@@ -34,8 +25,7 @@ class SBR_RadarChart extends React.Component {
         }
     }
 
-    render () {
-        const { classes, theme } = this.props;
+    render() {
         const { data, polarAngleAxisKey, radarAttrArray } = this.props;
 
         return (
@@ -63,9 +53,6 @@ class SBR_RadarChart extends React.Component {
     }
 }
 
-SBR_RadarChart.propTypes = {
-    classes: PropTypes.object.isRequired,
-    theme: PropTypes.object.isRequired,
-};
+SBR_RadarChart.propTypes = {};
 
-export default withStyles(styles, { withTheme: true })(SBR_RadarChart);
+export default SBR_RadarChart;

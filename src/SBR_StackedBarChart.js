@@ -50,6 +50,7 @@ class SBR_StackedBarChart extends React.Component {
                     {barDataArray.map((barData, index) => {
                         return (
                             <Bar
+                                key={index}
                                 stackId="a"
                                 dataKey={barData.key}
                                 name={barData.name}

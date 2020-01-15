@@ -7,7 +7,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
     Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
     BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis,
     PolarRadiusAxis, ComposedChart, RadialBarChart, RadialBar,
-    ScatterChart, Scatter, Treemap, ReferenceLine } from 'recharts'
+    ScatterChart, Scatter, Treemap, ReferenceLine, LabelList } from 'recharts'
 
 import SimpleDateAxisTick from './SimpleDateAxisTick';
 

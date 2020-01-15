@@ -7,7 +7,7 @@ import { AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid,
     Line, LineChart, Legend, ResponsiveContainer, PieChart, Pie, Bar,
     BarChart, Sector, Cell, RadarChart, Radar, PolarGrid, PolarAngleAxis,
     PolarRadiusAxis, ComposedChart, RadialBarChart, RadialBar,
-    ScatterChart, Scatter, Treemap, ReferenceLine } from 'recharts'
+    ScatterChart, Scatter, Treemap, ReferenceLine, LabelList } from 'recharts'
 
 import SimpleDateAxisTick from './SimpleDateAxisTick';
 
@@ -26,7 +26,7 @@ class SBR_StackedBarChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey, barDataArray } = this.props;
+        const { data, xAxisDataKey, barDataArray, labelDataKey } = this.props;
 
         return (
             <ResponsiveContainer>
@@ -54,7 +54,12 @@ class SBR_StackedBarChart extends React.Component {
                                 stackId="a"
                                 dataKey={barData.key}
                                 name={barData.name}
-                                fill={barData.color} />
+                                fill={barData.color}>
+                                {labelDataKey &&
+                                    <LabelList
+                                        dataKey={labelDataKey}
+                                        position="top" />}
+                            </Bar>
                         );
                     })}
                 </BarChart>

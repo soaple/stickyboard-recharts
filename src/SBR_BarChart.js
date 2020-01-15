@@ -26,7 +26,14 @@ class SBR_BarChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey, barDataKey, barName, barColor } = this.props;
+        const {
+            data,
+            xAxisDataKey,
+            barDataKey,
+            barName,
+            barColor,
+            labelDataKey,
+        } = this.props;
 
         return (
             <ResponsiveContainer>
@@ -49,7 +56,12 @@ class SBR_BarChart extends React.Component {
                     <Bar
                         dataKey={barDataKey}
                         name={barName}
-                        fill={barColor}/>
+                        fill={barColor}>
+                        {labelDataKey &&
+                            <LabelList
+                                dataKey={labelDataKey}
+                                position="top" />}
+                    </Bar>
                 </BarChart>
             </ResponsiveContainer>
         )

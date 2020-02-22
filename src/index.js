@@ -1,4 +1,5 @@
 import LineChart from './SBR_LineChart';
+import MultiLineChart from './SBR_MultiLineChart';
 import BarChart from './SBR_BarChart';
 import StackedBarChart from './SBR_StackedBarChart';
 import ComposedChart from './SBR_ComposedChart';
@@ -13,6 +14,7 @@ import SimpleDateAxisTick from './SimpleDateAxisTick';
 
 export {
     LineChart,
+    MultiLineChart,
     BarChart,
     StackedBarChart,
     ComposedChart,

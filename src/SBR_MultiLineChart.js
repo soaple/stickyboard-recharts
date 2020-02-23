@@ -36,9 +36,6 @@ class SBR_MultiLineChart extends React.Component {
                     {xAxisDataKey &&
                         <XAxis
                             dataKey={xAxisDataKey}
-                            padding={{left: this.state.left, right: this.state.right}}
-                            domain={['dataMin -5', 'dataMax + 5']}
-                            type='number'
                             tickCount={10}
                             tick={<SimpleDateAxisTick />}/>}
                     {xAxisDataKey &&

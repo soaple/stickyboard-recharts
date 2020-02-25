@@ -26,7 +26,11 @@ class SBR_MultiLineChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey, lineDataArray, labelDataKey } = this.props;
+        const {
+            data,
+            xAxisDataKey,
+            lineDataArray,
+        } = this.props;
 
         return (
             <ResponsiveContainer>
@@ -58,10 +62,6 @@ class SBR_MultiLineChart extends React.Component {
                                 strokeWidth={2}
                                 dot={false}
                                 activeDot={{r: 6}}>
-                                {labelDataKey &&
-                                    <LabelList
-                                        dataKey={labelDataKey}
-                                        position="top" />}
                             </Line>
                         );
                     })}

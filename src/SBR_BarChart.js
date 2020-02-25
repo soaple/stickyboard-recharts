@@ -28,11 +28,12 @@ class SBR_BarChart extends React.Component {
     render() {
         const {
             data,
+            showBarLabel,
             xAxisDataKey,
+            precision,
             barDataKey,
             barName,
             barColor,
-            labelDataKey,
         } = this.props;
 
         return (
@@ -50,17 +51,17 @@ class SBR_BarChart extends React.Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
                         labelFormatter={(label) => { return DateUtil.formatDateOnly(label) }}
-                        formatter={(value) => {return value.toFixed(0)}}/>
+                        formatter={(value) => {return value.toFixed(precision || 0)}}/>
                     <Legend />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Bar
                         dataKey={barDataKey}
                         name={barName}
                         fill={barColor}>
-                        {labelDataKey &&
+                        {showBarLabel &&
                             <LabelList
-                                dataKey={labelDataKey}
-                                position="top" />}
+                                position="top"
+                                valueAccessor={entry => entry[barDataKey]} />}
                     </Bar>
                 </BarChart>
             </ResponsiveContainer>

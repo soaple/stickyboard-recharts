@@ -26,7 +26,16 @@ class SBR_StackedBarChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey, barDataArray, labelDataKey } = this.props;
+        const {
+            data,
+            showBarLabel,
+            showTotalSumLabel,
+            precision,
+            xAxisDataKey,
+            barDataArray,
+        } = this.props;
+
+        const barDataKeys = barDataArray.map(item => item.key);
 
         return (
             <ResponsiveContainer>
@@ -43,11 +52,13 @@ class SBR_StackedBarChart extends React.Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
                         labelFormatter={(label) => { return DateUtil.formatDateOnly(label) }}
-                        formatter={(value) => {return value.toFixed(0)}}/>
+                        formatter={(value) => {return value.toFixed(precision || 0)}}/>
                     <Legend />
                     <ReferenceLine y={0} stroke='#000'/>
 
                     {barDataArray.map((barData, index) => {
+                        const isLastItem = barDataArray.length - 1 === index;
+
                         return (
                             <Bar
                                 key={index}
@@ -55,10 +66,31 @@ class SBR_StackedBarChart extends React.Component {
                                 dataKey={barData.key}
                                 name={barData.name}
                                 fill={barData.color}>
-                                {labelDataKey &&
+                                {showBarLabel &&
                                     <LabelList
-                                        dataKey={labelDataKey}
-                                        position="top" />}
+                                        position="center"
+                                        valueAccessor={entry => {
+                                            let totalSum = 0;
+                                            barDataKeys.forEach((key) => {
+                                                totalSum += entry[key];
+                                            });
+
+                                            if (totalSum > 0) {
+                                                return `${(entry[barData.key] / totalSum * 100).toFixed(0)}%`;
+                                            } else {
+                                                return '';
+                                            }
+                                        }} />}
+                                {showTotalSumLabel && isLastItem &&
+                                    <LabelList
+                                        position="top"
+                                        valueAccessor={entry => {
+                                            let totalSum = 0;
+                                            barDataKeys.forEach((key) => {
+                                                totalSum += entry[key];
+                                            });
+                                            return totalSum > 0 ? totalSum : '';
+                                        }} />}
                             </Bar>
                         );
                     })}

@@ -26,7 +26,15 @@ class SBR_LineChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey, lineType, lineDataKey, lineName, lineColor } = this.props;
+        const {
+            data,
+            xAxisDataKey,
+            precision,
+            lineType,
+            lineDataKey,
+            lineName,
+            lineColor,
+        } = this.props;
 
         return (
             <ResponsiveContainer>
@@ -43,7 +51,7 @@ class SBR_LineChart extends React.Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
                         labelFormatter={(label) => { return DateUtil.formatDateOnly(label) }}
-                        formatter={(value) => {return value.toFixed(0)}}/>
+                        formatter={(value) => {return value.toFixed(precision || 0)}}/>
                     <Legend />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Line
@@ -54,7 +62,8 @@ class SBR_LineChart extends React.Component {
                         stroke={lineColor}
                         strokeWidth={2}
                         dot={false}
-                        activeDot={{r: 6}} />
+                        activeDot={{r: 6}}>
+                    </Line>
                 </LineChart>
             </ResponsiveContainer>
         )

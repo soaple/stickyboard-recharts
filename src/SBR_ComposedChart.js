@@ -26,9 +26,17 @@ class SBR_ComposedChart extends React.Component {
     }
 
     render() {
-        const { data, xAxisDataKey,
-            barDataKey, barName, barColor,
-            lineType, lineDataKey, lineName, lineColor,
+        const {
+            data,
+            xAxisDataKey,
+            precision,
+            barDataKey,
+            barName,
+            barColor,
+            lineType,
+            lineDataKey,
+            lineName,
+            lineColor,
         } = this.props;
 
         return (
@@ -44,7 +52,7 @@ class SBR_ComposedChart extends React.Component {
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip
                         labelFormatter={(label) => { return DateUtil.formatDateOnly(label) }}
-                        formatter={(value) => {return value.toFixed(0)}}/>
+                        formatter={(value) => {return value.toFixed(precision || 0)}}/>
                     <Legend />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Bar
